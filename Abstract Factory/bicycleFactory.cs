@@ -4,51 +4,66 @@ using System.Text;
 
 namespace Abstract_Factory
 {
-    public enum Bicyclesname
-    {
-        Trek,
-        Benz
-    }
-    public interface Ibicycle
-    {
-        string GetbicyclePrice();
+    //public enum Bicyclesname
+    //{
+    //    Trek,
+    //    Specialized
+    //}
+    //public interface Ibicycle
+    //{
+    //    string GetPrice();
 
-    }
+    //}
 
-    public abstract class BicycleFactory
+    public  class BicycleFactory : IVehicleFactory
     {
-        public static Ibicycle GetBicycle(Bicyclesname carName)
-        {
-            switch (carName)
+        public Vehicle ConvertVehicle(Vehicle.VehicleName bicycleName, string model) { 
+            switch (bicycleName)
             {
-                case Bicyclesname.Trek:
+                case Vehicle.VehicleName.Trek:
                 {
-                    return new Trek();
+                    return new Trek(model);
                 }
-                case Bicyclesname.Benz:
+                case Vehicle.VehicleName.Specialized:
                 {
-                    return new Specialized();
+                    return new Specialized(model);
                 }
                 default:
                     return null;
-
             }
         }
+
+       
+
     }
 
-    class Trek : Ibicycle
+   
+    public class Trek : Vehicle
     {
-        public string GetbicyclePrice()
+        public override string GetPrice()
         {
             return "$100";
+
         }
+
+        public Trek(string input) : base(input)
+        {
+        }
+
+
     }
 
-    class Specialized : Ibicycle
+    public class Specialized : Vehicle
     {
-        public string GetbicyclePrice()
+        public override string GetPrice()
         {
             return "$200";
+
         }
+
+        public Specialized(string input) : base(input)
+        {
+        }
+
     }
 }

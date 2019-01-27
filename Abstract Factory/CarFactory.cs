@@ -4,50 +4,65 @@ using System.Text;
 
 namespace Abstract_Factory
 {
-     public enum Carsname
-    {
-        Volvo ,
-        Benz
-    }
-    public interface ICar
-    {
-        string GetCarPrice();
+    // public enum Carsname
+    //{
+    //    Volvo ,
+    //    Benz
+    //}
+    //public interface ICar
+    //{
+    //    string GetPrice();
 
-    }
+    //}
 
-    public abstract class CarFactory
+    public  class CarFactory : IVehicleFactory
     {
-        public static ICar GetCar(Carsname carName)
+        public  Vehicle ConvertVehicle(Vehicle.VehicleName carName , string model)
         {
             switch (carName)
             {
-                case Carsname.Volvo:
+                case Vehicle.VehicleName.Volvo:
                 {
-                    return new Volvo();
+                    return new Volvo(model);
                 }
-                case Carsname.Benz:
+                case Vehicle.VehicleName.Benz:
                 {
-                    return new Benz();
+                    return new Benz(model);
                 }
                 default:
                     return null;
 
             }
         }
+
+       
     }
-    class Volvo : ICar
+   public  class Volvo : Vehicle
     {
-        public string GetCarPrice()
+        public override string GetPrice()
         {
             return "$100";
+
         }
+
+        public Volvo(string input) : base(input)
+        {
+        }
+
+       
     }
 
-    class Benz : ICar
+    public class Benz : Vehicle
     {
-        public string GetCarPrice()
+        public override  string GetPrice()
         {
             return "$200";
+
         }
+
+        public Benz(string input) : base(input)
+        {
+        }
+
     }
 }

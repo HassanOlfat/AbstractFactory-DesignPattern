@@ -6,7 +6,12 @@ namespace Abstract_Factory
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            IVehicleFactory v = VehicleAbstractFactoty.CreateFactory(VehicleAbstractFactoty.VehicleFactotyType.Car);
+            Vehicle v2 = v.ConvertVehicle(Vehicle.VehicleName.Benz,"220");
+
+            Console.WriteLine(v.GetType());
+            Console.WriteLine(v2.GetType() + " : " +v2.GetPrice());
+            Console.ReadKey();
         }
     }
 }
