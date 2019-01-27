@@ -4,17 +4,7 @@ using System.Text;
 
 namespace Abstract_Factory
 {
-    //public enum Bicyclesname
-    //{
-    //    Trek,
-    //    Specialized
-    //}
-    //public interface Ibicycle
-    //{
-    //    string GetPrice();
-
-    //}
-
+   
     public  class BicycleFactory : IVehicleFactory
     {
         public Vehicle ConvertVehicle(Vehicle.VehicleName bicycleName, string model) { 

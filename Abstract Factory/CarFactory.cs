@@ -4,16 +4,7 @@ using System.Text;
 
 namespace Abstract_Factory
 {
-    // public enum Carsname
-    //{
-    //    Volvo ,
-    //    Benz
-    //}
-    //public interface ICar
-    //{
-    //    string GetPrice();
-
-    //}
+   
 
     public  class CarFactory : IVehicleFactory
     {
