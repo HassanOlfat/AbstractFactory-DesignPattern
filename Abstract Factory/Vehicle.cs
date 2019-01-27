@@ -6,8 +6,7 @@ namespace Abstract_Factory
 {
     public interface IVehicleFactory
     {
-        //Ibicycle GetBicycle(Bicyclesname bicycleName);
-        //ICar GetCar(Carsname carName);
+        
         Vehicle ConvertVehicle(Vehicle.VehicleName carName, string model);
     }
    
