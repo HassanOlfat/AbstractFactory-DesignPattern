@@ -6,7 +6,7 @@ namespace Abstract_Factory
 {
     public enum Bicyclesname
     {
-        Volvo,
+        Trek,
         Benz
     }
     public interface Ibicycle
@@ -21,7 +21,7 @@ namespace Abstract_Factory
         {
             switch (carName)
             {
-                case Bicyclesname.Volvo:
+                case Bicyclesname.Trek:
                 {
                     return new Trek();
                 }
